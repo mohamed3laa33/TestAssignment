@@ -25,7 +25,7 @@ pipeline{
 	                echo "linting test is done by package named StyleCop.Analyzers and can be printed on the console"
 	                sh """
 	                	dotnet  add HelloWorldSolution package StyleCop.Analyzers
-	                	dotnet build | grep "warning" 
+	                	dotnet build | grep "warning" > lint_checker_output.txt
 
 	                """
                 }
