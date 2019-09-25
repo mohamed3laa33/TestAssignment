@@ -5,8 +5,8 @@ pipeline{
             steps{
                 script{
 	                sh """
-	                    dotnet build HelloWorldSolution -r win-x64 -o windows/ > windowsbuildlogfile.txt
-	                    dotnet build HelloWorldSolution -r linux-x64 -o ubuntu/ > ubuntubuildlogfile.txt
+	                    dotnet build HelloWorldSolution -r win-x64 -o windows_build/ > windowsbuildlogfile.txt
+	                    dotnet build HelloWorldSolution -r linux-x64 -o ubuntu_build/ > ubuntubuildlogfile.txt
 	                """
                 }
             }
@@ -25,7 +25,7 @@ pipeline{
 	                echo "linting test is done by package named StyleCop.Analyzers and can be printed on the console"
 	                sh """
 	                	dotnet  add HelloWorldSolution package StyleCop.Analyzers
-	                	dotnet build | grep "warning" > lint_checker_output.txt
+	                	dotnet build  > lint_checker_output.txt
 
 	                """
                 }
@@ -47,6 +47,7 @@ pipeline{
 	                sh '''
 	                chmod u+x outputscript.sh
 	                ./outputscript.sh
+			cat {BUILD_URL}/consoleText
 	                '''
                 }
             }
