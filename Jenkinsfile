@@ -47,7 +47,6 @@ pipeline{
 	                sh '''
 	                chmod u+x outputscript.sh
 	                ./outputscript.sh
-			curl -O ${BUILD_URL}consoleText
 	                '''
                 }
             }
