@@ -24,7 +24,7 @@ pipeline{
                 script{
 	                echo "linting test is done by package named StyleCop.Analyzers and can be printed on the console"
 	                sh """
-	                	dotnet HelloWorldSolution add package StyleCop.Analyzers
+	                	dotnet  add HelloWorldSolution package StyleCop.Analyzers
 	                	dotnet build 
 
 	                """
